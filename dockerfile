@@ -14,6 +14,6 @@ FROM scratch
 
 WORKDIR /usr/local/bin
 
-COPY --from=builder /usr/src/project/target/release/project .
+COPY --from=builder /usr/src/project/target/release/server-card-rs .
 
-CMD ["./project"]
+CMD ["./server-card-rs"]
