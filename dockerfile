@@ -4,8 +4,7 @@ WORKDIR /usr/src/project
 
 RUN cargo init .
 COPY Cargo* ./
-RUN cargo build --release && \
-    rm target/release/deps/project*
+RUN cargo build --release && rm target/release/deps/project*
 
 COPY . .
 RUN cargo build --release
