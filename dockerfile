@@ -15,5 +15,6 @@ FROM scratch
 WORKDIR /usr/local/bin
 
 COPY --from=builder /usr/src/project/target/release/server-card-rs .
+RUN pwd
 
 CMD ["./server-card-rs"]
