@@ -8,13 +8,10 @@ WORKDIR /usr/src/project
 RUN cargo init .
 
 COPY --chown=rust:rust Cargo.toml Cargo.toml
+COPY --chown=rust:rust src src
 # COPY --chown=rust:rust Cargo.lock Cargo.lock
 
-RUN cargo build --release 
-
-RUN rm src/*.rs
-
-COPY --chown=rust:rust src src
+# RUN rm src/*.rs
 
 RUN cargo build --release 
 # --target x86_64-unknown-linux-musl
