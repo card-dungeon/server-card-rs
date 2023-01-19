@@ -8,7 +8,7 @@ WORKDIR /usr/src/project
 RUN cargo init .
 
 COPY --chown=rust:rust Cargo.toml Cargo.toml
-COPY --chown=rust:rust Cargo.lock Cargo.lock
+# COPY --chown=rust:rust Cargo.lock Cargo.lock
 
 RUN cargo build --release 
 
