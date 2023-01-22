@@ -14,7 +14,7 @@ async fn main() {
     print!("{:?}", db);
 
     // run it
-    let addr = SocketAddr::from(([127, 0, 0, 1], 3000));
+    let addr = SocketAddr::from(([0, 0, 0, 0], 3000));
     println!("listening on {}", addr);
     axum::Server::bind(&addr)
         .serve(app.into_make_service())
@@ -23,6 +23,7 @@ async fn main() {
 }
 
 async fn handler() -> Html<&'static str> {
+    print!("루트 진입");
     Html("<h1>Hello, World!</h1>")
 }
 
