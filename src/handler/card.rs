@@ -15,7 +15,7 @@ pub async fn list(State(database): State<Database>) -> impl IntoResponse {
     options.sort = Some(doc! {
         "id": 1
     });
-
+ 
     let mut cursor = coll
         .find(None, options)
         .await
