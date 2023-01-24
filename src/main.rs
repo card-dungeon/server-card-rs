@@ -1,12 +1,13 @@
-use axum::{routing::get, Router};
+mod handler;
+mod db;
+mod model;
+
+use axum::{routing::{get, post}, Router};
 use std::net::SocketAddr;
 
 use dotenv;
 use tracing_subscriber::FmtSubscriber;
 use tracing::{Level};
-
-mod routes;
-mod db;
 
 #[tokio::main]
 async fn main() {
@@ -20,8 +21,11 @@ async fn main() {
     tracing::subscriber::set_global_default(subscriber)
     .expect("setting default subscriber failed");
 
-    let app = Router::new().route("/list", get(routes::card::list));
-    let app = app.with_state(database);
+    let app = Router::new()
+    .route("/card/list", get(handler::card::list))
+    .route("/card/create", post(handler::card::create))
+    .route("/card/createMany", post(handler::card::create_many))
+    .with_state(database);
 
     let addr = SocketAddr::from(([0, 0, 0, 0], 3000));
 

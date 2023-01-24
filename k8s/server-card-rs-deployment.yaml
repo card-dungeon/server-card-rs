@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: server-card-rs
+  namespace: secret-dungeon
+  labels:
+    app: card
+spec:
+  selector:
+    matchLabels:
+      app: card
+  template:
+    metadata:
+      labels:
+        app: card
+    spec:
+      containers:
+        - name: server-card-rs
+          image: gmae199boy/server-card:latest
+          ports:
+            - containerPort: 3000
+              name: card-port
+          env:
+            - name: DB_URL
+              valueFrom:
+                secretKeyRef:
+                  name: secret-dungeon-db
+                  key: DB_URL

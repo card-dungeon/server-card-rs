@@ -1,4 +1,4 @@
-use mongodb::{Client, options::ClientOptions, options::FindOptions, Database};
+use mongodb::{Client, options::ClientOptions, Database};
 
 pub async fn init() -> Result<Database, mongodb::error::Error> {
     let client_options = ClientOptions::parse(

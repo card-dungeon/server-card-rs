@@ -1,17 +1,22 @@
+use serde::{Serialize, Deserialize};
+use mongodb::bson;
+
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct Card {
-    pub id: u32,
-    pub name: string,
-    pub desc: string,
-    pub sprite: string,
+    #[serde(rename = "_id", skip_serializing_if = "Option::is_none")]
+    pub id: Option<bson::oid::ObjectId>,
+    pub card_id: u32, 
+    pub name: String,
+    pub desc: String,
+    pub sprite: String,
     pub atk: u32,
     pub hp: u32,
     pub sd: u32,
     pub spd: u32,
     pub heal: u32,
     pub cooldown: u32,
-    pub card_type: string,
-    pub class: string,
+    pub card_type: String,
+    pub class: String,
 }
 // {
 //     CardId: 0,

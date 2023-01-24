@@ -7,11 +7,14 @@ edition = "2021"
 
 [dependencies]
 tokio = { version = "*", features = ["full"] }
+tokio-stream = "*"
 axum = "*"
 serde_json = "*"
+serde = "*"
 tracing = "*"
 dotenv = "*"
 mongodb = "*"
+mongodm = "*"
 tracing-subscriber = "*"
 
 [profile.release]
