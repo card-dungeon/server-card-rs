@@ -1,4 +1,4 @@
-FROM ekidd/rust-musl-builder AS builder
+FROM clux/muslrust:stable AS builder
 
 WORKDIR /usr/src/project
 
