@@ -22,4 +22,4 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/server-card:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/secret-dungeon-card-rs:latest
